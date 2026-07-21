@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<!-- saved from url=(0239)file:///Users/joseluisbenettvazquez/Library/Application%20Support/Claude/local-agent-mode-sessions/7bbd0b55-10cc-4596-b8c7-9e79548c000a/796eb5d9-1af9-43fd-8c1f-93101d78d848/local_b6a54f66-f728-40b1-bb35-2b2f19b2bcc7/outputs/Cosmos%202.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Cosmos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="file:///Users/joseluisbenettvazquez/Library/Application%20Support/Claude/local-agent-mode-sessions/7bbd0b55-10cc-4596-b8c7-9e79548c000a/796eb5d9-1af9-43fd-8c1f-93101d78d848/local_b6a54f66-f728-40b1-bb35-2b2f19b2bcc7/outputs/Cosmos%202_files/css2" rel="stylesheet">
+<script src="file:///Users/joseluisbenettvazquez/Library/Application%20Support/Claude/local-agent-mode-sessions/7bbd0b55-10cc-4596-b8c7-9e79548c000a/796eb5d9-1af9-43fd-8c1f-93101d78d848/local_b6a54f66-f728-40b1-bb35-2b2f19b2bcc7/outputs/Cosmos%202_files/peerjs.min.js"></script>
+<script src="file:///Users/joseluisbenettvazquez/Library/Application%20Support/Claude/local-agent-mode-sessions/7bbd0b55-10cc-4596-b8c7-9e79548c000a/796eb5d9-1af9-43fd-8c1f-93101d78d848/local_b6a54f66-f728-40b1-bb35-2b2f19b2bcc7/outputs/Cosmos%202_files/ffmpeg.js"></script>
+<style>
+  :root{
+    --bg: #0d1128;
+    --bg-alt: #161c3d;
+    --bg-card: #1b2247;
+    --gold: #e8a94a;
+    --gold-dim: #b9863b;
+    --rose: #d97a93;
+    --text: #f2ede2;
+    --text-dim: #9aa0c4;
+    --border: rgba(255,255,255,0.09);
+    --ok: #7fc98f;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{height:100%; overflow-x:hidden;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(232,169,74,0.10), transparent 55%),
+      radial-gradient(ellipse at 90% 0%, rgba(217,122,147,0.08), transparent 45%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Manrope', sans-serif;
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .filmstrip{
+    width:100%;
+    height:8px;
+    background-image: repeating-linear-gradient(90deg, var(--gold-dim) 0 14px, transparent 14px 26px);
+    opacity:0.55;
+    flex-shrink:0;
+  }
+  header{
+    text-align:center;
+    padding:clamp(20px,5vw,36px) 16px 14px;
+  }
+  header h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:clamp(1.5rem, 5vw, 2.1rem);
+    margin:0 0 6px;
+  }
+  header h1 span{ color:var(--gold); }
+  header p{
+    margin:0;
+    color:var(--text-dim);
+    font-size:0.9rem;
+  }
+
+  main{
+    width:100%;
+    max-width:980px;
+    padding:8px 14px 40px;
+    flex:1;
+  }
+
+  .steps{ display:grid; gap:14px; }
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 18px;
+  }
+  .card h2{
+    font-family:'Fraunces', serif;
+    font-size:1rem;
+    font-weight:600;
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .card h2 .num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;height:24px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--gold);
+    color:#26200f;
+    font-size:0.8rem;
+    font-weight:700;
+    font-family:'Manrope',sans-serif;
+  }
+  .card p.hint{
+    color:var(--text-dim);
+    font-size:0.85rem;
+    margin:4px 0 14px;
+    line-height:1.45;
+  }
+  .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+
+  button{
+    font-family:'Manrope',sans-serif;
+    font-weight:600;
+    font-size:0.92rem;
+    border:none;
+    border-radius:10px;
+    padding:13px 20px;
+    cursor:pointer;
+    background:var(--gold);
+    color:#26200f;
+    transition:transform 0.08s ease, background 0.15s ease;
+    min-height:44px;
+  }
+  button:hover{ background:#f0b45f; }
+  button:active{ transform:scale(0.97); }
+  button.secondary{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--border);
+  }
+  button.secondary:hover{ border-color:var(--gold); color:var(--gold); background:transparent; }
+  button:disabled{ opacity:0.4; cursor:not-allowed; }
+  button.wide{ width:100%; }
+
+  input[type=text]{
+    width:100%;
+    background:var(--bg-alt);
+    border:1px solid var(--border);
+    border-radius:9px;
+    color:var(--text);
+    font-family:'Manrope',sans-serif;
+    font-size:16px;
+    padding:12px 14px;
+  }
+  input[type=file]{
+    color:var(--text-dim);
+    font-size:0.85rem;
+    max-width:100%;
+  }
+  .file-name{ font-size:0.85rem; color:var(--gold); word-break:break-all; }
+  .status-line{ display:flex; align-items:center; gap:8px; font-size:0.85rem; margin-top:12px; }
+  .status-dot{
+    display:inline-block;
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--text-dim);
+    flex-shrink:0;
+  }
+  .status-dot.on{ background:var(--ok); }
+  .status-dot.pending{ background:var(--gold); animation:pulse 1.2s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+  /* ---- stage ---- */
+  #stage{ display:none; width:100%; }
+  #stage.active{ display:block; }
+  .stage-wrap{
+    position:relative;
+    background:#000;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--border);
+  }
+  video#moviePlayer{
+    width:100%;
+    display:block;
+    max-height:70vh;
+    background:#000;
+  }
+
+  /* Al poner el video en pantalla completa, fullscreenamos #stage entero
+     (video + burbuja de llamada) en vez de solo el <video>, para que la
+     burbuja no desaparezca en macOS/Safari/Chrome. */
+  #stage:fullscreen,
+  #stage:-webkit-full-screen{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#000;
+    width:100vw;
+    height:100vh;
+  }
+  #stage:fullscreen .stage-wrap,
+  #stage:-webkit-full-screen .stage-wrap{
+    width:100%;
+    height:100%;
+    border-radius:0;
+    border:none;
+    display:flex;
+    flex-direction:column;
+  }
+  #stage:fullscreen video#moviePlayer,
+  #stage:-webkit-full-screen video#moviePlayer{
+    flex:1;
+    width:100%;
+    height:100%;
+    max-height:none;
+    object-fit:contain;
+  }
+  #stage:fullscreen .controls-bar,
+  #stage:-webkit-full-screen .controls-bar{
+    flex-shrink:0;
+  }
+  #stage:fullscreen .call-bubble,
+  #stage:-webkit-full-screen .call-bubble{
+    z-index:2147483647;
+  }
+  .controls-bar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 14px;
+    background:var(--bg-alt);
+    border-top:1px solid var(--border);
+    flex-wrap:wrap;
+  }
+  .controls-bar input[type=range]{ accent-color: var(--gold); flex:1; min-width:80px; }
+  .controls-bar .label{ font-size:0.75rem; color:var(--text-dim); white-space:nowrap; }
+
+  .call-bubble{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    width:170px;
+    background:
+      radial-gradient(1px 1px at 15% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 70% 15%, #fff, transparent),
+      radial-gradient(1px 1px at 40% 80%, #fff, transparent),
+      radial-gradient(1px 1px at 85% 65%, #fff, transparent),
+      radial-gradient(1px 1px at 55% 45%, #fff, transparent),
+      var(--bg-card);
+    background-repeat:no-repeat;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:8px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(232,169,74,0.06);
+    z-index:20;
+  }
+  .bubble-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .icon-btn{
+    background:transparent;
+    border:none;
+    color:var(--text-dim);
+    cursor:pointer;
+    font-size:1.1rem;
+    padding:2px 6px;
+    min-height:auto;
+    line-height:1;
+  }
+  .icon-btn:hover{ color:var(--gold); background:transparent; }
+  .call-actions{
+    display:flex;
+    gap:6px;
+    margin-top:8px;
+  }
+  button.small{
+    padding:9px 8px;
+    font-size:0.72rem;
+    flex:1;
+    min-height:auto;
+  }
+  button.hangup{
+    background:#c0546b;
+    color:#fff;
+  }
+  button.hangup:hover{ background:#d16b86; }
+  .call-bubble h3{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--rose);
+    margin:2px 0 6px 2px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    cursor:grab;
+    touch-action:none;
+    user-select:none;
+  }
+  .call-bubble.dragging h3{ cursor:grabbing; }
+  .call-bubble.dragging{ opacity:0.92; }
+  .call-videos{
+    position:relative;
+    border-radius:9px;
+    overflow:hidden;
+    background:#000;
+  }
+  video#remoteVideo{
+    width:100%;
+    display:block;
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+  video#localVideo{
+    position:absolute;
+    width:34%;
+    right:5px;
+    bottom:5px;
+    border-radius:50%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 0 0 1px rgba(232,169,74,0.5);
+  }
+  .call-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:6px;
+    gap:6px;
+  }
+  .call-controls input[type=range]{ width:60%; accent-color:var(--rose); }
+  .call-controls .label{ font-size:0.65rem; color:var(--text-dim); }
+
+  .mode-select{
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px solid var(--border);
+  }
+  .mode-select-label{
+    display:block;
+    font-size:0.82rem;
+    color:var(--text-dim);
+    margin-bottom:6px;
+  }
+  select.quality-select{
+    width:100%;
+    appearance:none;
+    -webkit-appearance:none;
+    background:var(--bg-alt) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23e8a94a" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 14px center;
+    border:1px solid var(--border);
+    border-radius:10px;
+    color:var(--text);
+    font-family:'Manrope',sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    padding:13px 38px 13px 14px;
+    cursor:pointer;
+  }
+  select.quality-select:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+
+  footer{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:0.75rem;
+    padding:0 16px 20px;
+  }
+
+  .dur-warning{
+    display:none;
+    margin-top:8px;
+    font-size:0.78rem;
+    color:var(--gold);
+    background:rgba(232,169,74,0.08);
+    border:1px solid rgba(232,169,74,0.25);
+    border-radius:8px;
+    padding:8px 10px;
+    line-height:1.4;
+  }
+  .dur-warning.show{ display:block; }
+
+  @media (max-width:600px){
+    .card{ padding:15px; border-radius:12px; }
+    .call-bubble{ width:130px; right:10px; bottom:10px; padding:6px; }
+    video#moviePlayer{ max-height:42vh; }
+    .controls-bar{ padding:8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="filmstrip"></div>
+
+<header>
+  <h1><span>Cosm<svg class="planet-o" width="0.85em" height="0.85em" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:-0.08em;">
+    <ellipse cx="20" cy="21" rx="17" ry="5" fill="none" stroke="#e8a94a" stroke-width="2.2" transform="rotate(-16 20 21)"></ellipse>
+    <circle cx="20" cy="19" r="10" fill="#e8a94a"></circle>
+  </svg>s</span></h1>
+  <p>Su propia sala de cine, sin importar la distancia.</p>
+</header>
+
+<main>
+
+  <div id="setup" class="steps">
+
+    <div class="card">
+      <h2><span class="num">1</span> Carga tu película</h2>
+      <p class="hint">Cada uno debe tener el mismo archivo de video guardado en su equipo. El archivo nunca se envía por internet, solo se reproduce localmente.</p>
+      <div class="row">
+        <input type="file" id="fileInput" accept="video/*">
+        <span id="fileName" class="file-name"></span>
+      </div>
+      <div class="row" style="margin-top:12px;">
+        <input type="file" id="subInput" accept=".srt,.vtt">
+        <span id="subName" class="file-name">Subtítulos (.srt) — opcional</span>
+      </div>
+      <div id="audioTrackRow" style="margin-top:12px; display:none;">
+        <span class="mode-select-label">Pista de audio</span>
+        <select id="audioTrackSelect" class="quality-select"></select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">2</span> Activa cámara y micrófono</h2>
+      <p class="hint">Esto habilita la videollamada integrada.</p>
+      <div class="row">
+        <button id="btnCamera">Activar cámara</button>
+        <span class="status-line"><span class="status-dot" id="camDot"></span><span id="camText" style="color:var(--text-dim);">sin activar</span></span>
+      </div>
+      <div class="mode-select">
+        <span class="mode-select-label">Modo de llamada</span>
+        <select id="qualityToggle2" class="quality-select">
+          <option value="estabilidad">Estabilidad</option>
+          <option value="calidad">Alta calidad</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">3</span> Conéctense</h2>
+      <p class="hint">Pónganse de acuerdo en una palabra o nombre de sala (por ejemplo, sus dos nombres) y escríbanla igual los dos. Uno de los dos abrirá la sala automáticamente y el otro se unirá solo, sin códigos que copiar.</p>
+      <input type="text" id="roomCode" placeholder="Nombre de su sala, ej: eva-y-luis">
+      <div class="row" style="margin-top:12px;">
+        <button id="btnConectar" style="flex:1;">Conectar</button>
+        <button id="btnCancelarConexion" class="secondary" style="display:none;">Cancelar conexión</button>
+      </div>
+      <p class="status-line"><span class="status-dot" id="connDot"></span><span id="connText" style="color:var(--text-dim);">esperando</span></p>
+      <p class="dur-warning" id="durWarning"></p>
+    </div>
+
+  </div>
+
+  <div id="stage">
+    <div class="stage-wrap">
+      <video id="moviePlayer" controls="" controlslist="nofullscreen"></video>
+      <div class="controls-bar">
+        <span class="label">Volumen película</span>
+        <input type="range" id="movieVolume" min="0" max="2" step="0.05" value="1">
+        <span class="label" id="movieVolumeLabel">100%</span>
+        <button id="btnFullscreen" class="secondary small" style="flex:0 0 auto; min-height:36px; padding:8px 12px;" title="Pantalla completa (con burbuja de llamada visible)">⛶ Pantalla completa</button>
+      </div>
+      <div class="controls-bar">
+        <span class="label">Brillo</span>
+        <input type="range" id="brightnessSlider" min="0.4" max="1.6" step="0.05" value="1">
+        <span class="label" id="brightnessLabel">100%</span>
+      </div>
+    </div>
+  <div class="call-bubble" id="callBubble" style="display:none;">
+  <div class="bubble-top">
+    <h3 id="bubbleHandle">🪐 Enlace Espacial</h3>
+    <button id="toggleButtonsBtn" class="icon-btn" title="Mostrar/ocultar controles de llamada">⋯</button>
+  </div>
+  <div class="call-videos">
+    <video id="remoteVideo" autoplay="" playsinline=""></video>
+    <video id="localVideo" autoplay="" playsinline="" muted=""></video>
+  </div>
+  <div class="call-controls">
+    <span class="label">Volumen</span>
+    <input type="range" id="callVolume" min="0" max="1" step="0.05" value="1">
+  </div>
+  <div class="mode-select">
+    <span class="mode-select-label">Modo de llamada</span>
+    <select id="qualityToggle" class="quality-select">
+      <option value="estabilidad">Estabilidad</option>
+      <option value="calidad">Alta calidad</option>
+    </select>
+  </div>
+  <div class="call-actions" id="callActions">
+    <button id="btnMuteMic" class="secondary small">Mutear micrófono</button>
+    <button id="btnHangup" class="hangup small">Colgar</button>
+  </div>
+</div></div>
+
+</main>
+
+<footer>Conexión directa entre sus dos equipos. Nadie más ve ni la película ni la llamada.
+<br><span style="color:var(--rose); font-style:italic;">en honor a la persona que mas feliz me ha hecho en la vida, te amo mi 14/7</span></footer>
+
+
+
+<script>
+  const fileInput = document.getElementById('fileInput');
+  const fileName = document.getElementById('fileName');
+  const moviePlayer = document.getElementById('moviePlayer');
+  const movieVolume = document.getElementById('movieVolume');
+
+  const btnCamera = document.getElementById('btnCamera');
+  const camDot = document.getElementById('camDot');
+  const camText = document.getElementById('camText');
+  const localVideo = document.getElementById('localVideo');
+  const remoteVideo = document.getElementById('remoteVideo');
+  const callVolume = document.getElementById('callVolume');
+  const callBubble = document.getElementById('callBubble');
+
+  const roomCode = document.getElementById('roomCode');
+  const btnConectar = document.getElementById('btnConectar');
+  const connDot = document.getElementById('connDot');
+  const connText = document.getElementById('connText');
+
+  const setupPanel = document.getElementById('setup');
+  const stagePanel = document.getElementById('stage');
+
+  // La burbuja de llamada pasa a ser descendiente de #stage. Así, cuando
+  // ponemos #stage (en vez de solo el <video>) en pantalla completa, la
+  // burbuja sigue formando parte del elemento en pantalla completa y no
+  // desaparece (esto es lo que rompía en macOS).
+  stagePanel.appendChild(callBubble);
+
+  let peer, dataConn, mediaCall, localStream;
+  let ignoreEvents = false;
+  let currentFile = null;
+  let remuxAttempted = false;
+  let ffmpegInstance = null;
+
+  const rtcConfig = {
+    iceServers: [
+      { urls: 'stun:stun.l.google.com:19302' },
+      { urls: 'stun:stun1.l.google.com:19302' },
+      { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' }
+    ]
+  };
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      currentFile = file;
+      remuxAttempted = false;
+      moviePlayer.src = URL.createObjectURL(file);
+      fileName.textContent = file.name;
+      setupAudioGraph();
+    }
+  });
+  const movieVolumeLabel = document.getElementById('movieVolumeLabel');
+  let audioCtx, gainNode, sourceNode;
+
+  function setupAudioGraph() {
+    if (sourceNode) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    sourceNode = audioCtx.createMediaElementSource(moviePlayer);
+    gainNode = audioCtx.createGain();
+    sourceNode.connect(gainNode).connect(audioCtx.destination);
+    gainNode.gain.value = parseFloat(movieVolume.value);
+  }
+
+  moviePlayer.addEventListener('play', () => {
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  });
+
+  const brightnessSlider = document.getElementById('brightnessSlider');
+  const brightnessLabel = document.getElementById('brightnessLabel');
+  brightnessSlider.addEventListener('input', () => {
+    const v = parseFloat(brightnessSlider.value);
+    moviePlayer.style.filter = 'brightness(' + v + ')';
+    brightnessLabel.textContent = Math.round(v * 100) + '%';
+  });
+
+  movieVolume.addEventListener('input', () => {
+    const v = parseFloat(movieVolume.value);
+    movieVolumeLabel.textContent = Math.round(v * 100) + '%';
+    if (gainNode) gainNode.gain.value = v;
+  });
+  callVolume.addEventListener('input', () => { remoteVideo.volume = callVolume.value; });
+
+  async function getFFmpeg() {
+    if (ffmpegInstance) return ffmpegInstance;
+    const { FFmpeg } = FFmpegWASM;
+    ffmpegInstance = new FFmpeg();
+    await ffmpegInstance.load({
+      coreURL: 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.js',
+      wasmURL: 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.wasm'
+    });
+    return ffmpegInstance;
+  }
+
+  async function repararArchivo(file) {
+    fileName.textContent = 'Tu video no se reprodujo directo, arreglándolo (puede tardar unos minutos)...';
+    fileName.style.color = 'var(--gold)';
+    try {
+      const ff = await getFFmpeg();
+      const data = new Uint8Array(await file.arrayBuffer());
+      await ff.writeFile('entrada.mkv', data);
+      // Solo reempaqueta el contenido (sin volver a comprimir), por eso es rápido.
+      await ff.exec(['-i', 'entrada.mkv', '-c', 'copy', '-movflags', 'faststart', 'salida.mp4']);
+      const output = await ff.readFile('salida.mp4');
+      const blob = new Blob([output.buffer], { type: 'video/mp4' });
+      moviePlayer.src = URL.createObjectURL(blob);
+      fileName.textContent = file.name + ' (arreglado y listo)';
+      fileName.style.color = 'var(--ok)';
+    } catch (err) {
+      fileName.textContent = 'No se pudo reproducir este archivo: probablemente use un códec no compatible. Prueba convirtiéndolo con otro programa primero.';
+      fileName.style.color = 'var(--rose)';
+    }
+  }
+
+  const subInput = document.getElementById('subInput');
+  const subName = document.getElementById('subName');
+  const audioTrackRow = document.getElementById('audioTrackRow');
+  const audioTrackSelect = document.getElementById('audioTrackSelect');
+
+  function srtToVtt(srtText) {
+    const normalized = srtText.replace(/\r/g, '');
+    const blocks = normalized.split(/\n\n+/);
+    let out = 'WEBVTT\n\n';
+    blocks.forEach((block) => {
+      const lines = block.split('\n').filter((l) => l.trim() !== '');
+      if (lines.length === 0) return;
+      if (/^\d+$/.test(lines[0].trim())) lines.shift();
+      if (lines.length === 0) return;
+      const timeLine = lines[0].replace(/(\d{2}:\d{2}:\d{2}),(\d{3})/g, '$1.$2');
+      const textLines = lines.slice(1);
+      out += timeLine + '\n' + textLines.join('\n') + '\n\n';
+    });
+    return out;
+  }
+
+  subInput.addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const text = await file.text();
+    const vtt = file.name.toLowerCase().endsWith('.vtt') ? text : srtToVtt(text);
+    const blob = new Blob([vtt], { type: 'text/vtt' });
+    const url = URL.createObjectURL(blob);
+    document.querySelectorAll('track[data-custom]').forEach((t) => t.remove());
+    const track = document.createElement('track');
+    track.kind = 'subtitles';
+    track.label = 'Subtítulos';
+    track.srclang = 'es';
+    track.src = url;
+    track.default = true;
+    track.setAttribute('data-custom', '1');
+    moviePlayer.appendChild(track);
+    subName.textContent = file.name;
+    subName.style.color = 'var(--ok)';
+  });
+
+  moviePlayer.addEventListener('loadedmetadata', () => {
+    if (moviePlayer.audioTracks && moviePlayer.audioTracks.length > 1) {
+      audioTrackSelect.innerHTML = '';
+      for (let i = 0; i < moviePlayer.audioTracks.length; i++) {
+        const t = moviePlayer.audioTracks[i];
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = t.label || t.language || ('Pista ' + (i + 1));
+        audioTrackSelect.appendChild(opt);
+      }
+      audioTrackRow.style.display = 'block';
+    } else {
+      audioTrackRow.style.display = 'none';
+    }
+  });
+
+  audioTrackSelect.addEventListener('change', () => {
+    const idx = parseInt(audioTrackSelect.value, 10);
+    for (let i = 0; i < moviePlayer.audioTracks.length; i++) {
+      moviePlayer.audioTracks[i].enabled = (i === idx);
+    }
+  });
+
+  const MAX_AUTO_REPAIR_BYTES = 2 * 1024 * 1024 * 1024; // 2GB: por encima de esto no vale la pena intentar arreglar en el navegador
+
+  moviePlayer.addEventListener('error', () => {
+    if (!currentFile || remuxAttempted) return;
+    remuxAttempted = true;
+    if (currentFile.size > MAX_AUTO_REPAIR_BYTES) {
+      fileName.textContent = 'Este archivo es muy grande para arreglarlo en el navegador. Probablemente use un códec no compatible — puede que necesites convertirlo antes con otro programa.';
+      fileName.style.color = 'var(--rose)';
+      return;
+    }
+    repararArchivo(currentFile);
+  });
+
+  btnCamera.addEventListener('click', async () => {
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      localVideo.srcObject = localStream;
+      await applyQualityMode(qualityMode);
+      camDot.classList.add('on');
+      camText.textContent = 'cámara activa';
+      camText.style.color = 'var(--ok)';
+      btnCamera.disabled = true;
+    } catch (err) {
+      camText.textContent = 'no se pudo activar (revisa permisos)';
+    }
+  });
+
+  function setStatus(dotClass, text, color) {
+    connDot.className = 'status-dot ' + dotClass;
+    connText.textContent = text;
+    connText.style.color = color || 'var(--text-dim)';
+  }
+
+  const toggleButtonsBtn = document.getElementById('toggleButtonsBtn');
+  const callActions = document.getElementById('callActions');
+  const btnMuteMic = document.getElementById('btnMuteMic');
+  const btnHangup = document.getElementById('btnHangup');
+  let micMuted = false;
+  let controlsHidden = false;
+
+  toggleButtonsBtn.addEventListener('click', () => {
+    controlsHidden = !controlsHidden;
+    callActions.style.display = controlsHidden ? 'none' : 'flex';
+  });
+
+  btnMuteMic.addEventListener('click', () => {
+    if (!localStream) return;
+    micMuted = !micMuted;
+    localStream.getAudioTracks().forEach((t) => { t.enabled = !micMuted; });
+    btnMuteMic.textContent = micMuted ? 'Activar micrófono' : 'Mutear micrófono';
+  });
+
+  btnHangup.addEventListener('click', () => {
+    if (mediaCall) mediaCall.close();
+    if (dataConn) dataConn.close();
+    if (peer) peer.destroy();
+    callBubble.style.display = 'none';
+    stagePanel.classList.remove('active');
+    setupPanel.style.display = 'grid';
+    setStatus('', 'llamada finalizada');
+    btnConectar.disabled = false;
+    btnCancelarConexion.style.display = 'none';
+  });
+
+  function onConnected() {
+    setupPanel.style.display = 'none';
+    stagePanel.classList.add('active');
+    callBubble.style.display = 'block';
+    setStatus('on', 'conectado', 'var(--ok)');
+    btnCancelarConexion.style.display = 'none';
+  }
+
+  function monitorConnection(pc) {
+    if (!pc) return;
+    pc.oniceconnectionstatechange = () => {
+      const state = pc.iceConnectionState;
+      if (state === 'failed' || state === 'disconnected') {
+        setStatus('', 'la conexión falló (probablemente red/firewall bloqueando). Intenta de nuevo.');
+        btnConectar.disabled = false;
+      } else if (state === 'checking') {
+        setStatus('pending', 'estableciendo conexión directa...');
+      }
+    };
+  }
+
+  let connectTimeoutId = null;
+  function startConnectTimeout() {
+    clearTimeout(connectTimeoutId);
+    connectTimeoutId = setTimeout(() => {
+      if (!(dataConn && dataConn.open)) {
+        setStatus('', 'esto está tardando más de lo normal — puede ser la red/firewall. Seguimos intentando...');
+      }
+    }, 15000);
+  }
+
+  function setupDataConn(conn) {
+    dataConn = conn;
+    dataConn.on('open', () => { clearTimeout(connectTimeoutId); onConnected(); });
+    dataConn.on('data', (msg) => { applyRemoteSync(msg); });
+    dataConn.on('error', (err) => { setStatus('', 'error de conexión: ' + (err && err.message ? err.message : 'desconocido')); });
+    if (conn.peerConnection) monitorConnection(conn.peerConnection);
+  }
+
+  function sendSync(type) {
+    if (dataConn && dataConn.open) {
+      dataConn.send({ type, time: moviePlayer.currentTime });
+    }
+  }
+
+  // ---- Tolerancia a diferencias de duración entre las dos copias ----
+  // Si la película de tu pareja dura unos segundos menos (o más) que la
+  // tuya por venir de otra fuente/plataforma, un mensaje de sincronización
+  // puede pedir un currentTime más allá de la duración real de TU video.
+  // Sin protección, eso puede: (a) tirar un error si el valor no es finito,
+  // o (b) quedar "pegado" al final sin avisar. Acá lo evitamos y avisamos.
+  const durWarning = document.getElementById('durWarning');
+  let durWarningTimeoutId = null;
+
+  function showDurWarning(diffSeconds) {
+    durWarning.textContent = 'Parece que las dos copias de la película tienen una duración distinta (diferencia de ~' + Math.round(diffSeconds) + 's). Cerca del final puede haber pequeños desfases, pero no debería trabarse la app.';
+    durWarning.classList.add('show');
+    clearTimeout(durWarningTimeoutId);
+    durWarningTimeoutId = setTimeout(() => durWarning.classList.remove('show'), 12000);
+  }
+
+  function clampToLocalDuration(time) {
+    const dur = moviePlayer.duration;
+    if (!isFinite(time) || time < 0) return 0;
+    if (isFinite(dur) && dur > 0 && time > dur) {
+      showDurWarning(time - dur);
+      return dur;
+    }
+    return time;
+  }
+
+  function safeSetCurrentTime(time) {
+    const t = clampToLocalDuration(time);
+    try { moviePlayer.currentTime = t; } catch (e) { /* valor no finito u otro edge case: lo ignoramos en vez de crashear */ }
+  }
+
+  function applyRemoteSync(msg) {
+    ignoreEvents = true;
+    if (msg.type === 'play') { safeSetCurrentTime(msg.time); moviePlayer.play().catch(() => {}); }
+    if (msg.type === 'pause') { safeSetCurrentTime(msg.time); moviePlayer.pause(); }
+    if (msg.type === 'seek') { safeSetCurrentTime(msg.time); }
+    if (msg.type === 'sync') {
+      if (Math.abs(moviePlayer.currentTime - msg.time) > 0.8) safeSetCurrentTime(msg.time);
+    }
+    setTimeout(() => { ignoreEvents = false; }, 250);
+  }
+
+  moviePlayer.addEventListener('play', () => { if (!ignoreEvents) sendSync('play'); });
+  moviePlayer.addEventListener('pause', () => { if (!ignoreEvents) sendSync('pause'); });
+  moviePlayer.addEventListener('seeked', () => { if (!ignoreEvents) sendSync('seek'); });
+  // Cuando tu copia termina antes que la de tu pareja (por ser más corta),
+  // el navegador dispara 'pause' justo después de 'ended'. Sin este bloqueo
+  // ese pause se reenviaría y pausaría también la película de tu pareja.
+  moviePlayer.addEventListener('ended', () => {
+    ignoreEvents = true;
+    setTimeout(() => { ignoreEvents = false; }, 600);
+  });
+  setInterval(() => { if (!moviePlayer.paused && !ignoreEvents) sendSync('sync'); }, 4000);
+
+  const bubbleHandle = document.getElementById('bubbleHandle');
+  let dragging = false, dragOffsetX = 0, dragOffsetY = 0;
+
+  function startDrag(e) {
+    dragging = true;
+    callBubble.classList.add('dragging');
+    const rect = callBubble.getBoundingClientRect();
+    const point = e.touches ? e.touches[0] : e;
+    dragOffsetX = point.clientX - rect.left;
+    dragOffsetY = point.clientY - rect.top;
+    callBubble.style.right = 'auto';
+    callBubble.style.bottom = 'auto';
+    callBubble.style.left = rect.left + 'px';
+    callBubble.style.top = rect.top + 'px';
+    document.addEventListener('mousemove', onDrag);
+    document.addEventListener('touchmove', onDrag, { passive: false });
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchend', stopDrag);
+  }
+
+  function onDrag(e) {
+    if (!dragging) return;
+    e.preventDefault();
+    const point = e.touches ? e.touches[0] : e;
+    let x = point.clientX - dragOffsetX;
+    let y = point.clientY - dragOffsetY;
+    const maxX = window.innerWidth - callBubble.offsetWidth;
+    const maxY = window.innerHeight - callBubble.offsetHeight;
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
+    callBubble.style.left = x + 'px';
+    callBubble.style.top = y + 'px';
+  }
+
+  function stopDrag() {
+    dragging = false;
+    callBubble.classList.remove('dragging');
+    document.removeEventListener('mousemove', onDrag);
+    document.removeEventListener('touchmove', onDrag);
+    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('touchend', stopDrag);
+  }
+
+  bubbleHandle.addEventListener('mousedown', startDrag);
+  bubbleHandle.addEventListener('touchstart', startDrag, { passive: true });
+  const qualityToggle2 = document.getElementById('qualityToggle2');
+  let qualityMode = 'estabilidad';
+
+  const QUALITY_PRESETS = {
+    estabilidad: { maxBitrate: 250000, width: 640, height: 480, frameRate: 15 },
+    calidad: { maxBitrate: 1500000, width: 1280, height: 720, frameRate: 30 }
+  };
+
+  function applyBitrate(call, maxBitrate) {
+    const pc = call.peerConnection;
+    if (!pc) return;
+    const sender = pc.getSenders().find((s) => s.track && s.track.kind === 'video');
+    if (sender) {
+      const params = sender.getParameters();
+      if (!params.encodings || params.encodings.length === 0) params.encodings = [{}];
+      params.encodings[0].maxBitrate = maxBitrate;
+      sender.setParameters(params).catch(() => {});
+    }
+  }
+
+  async function applyQualityMode(mode) {
+    qualityMode = mode;
+    qualityToggle.value = mode;
+    qualityToggle2.value = mode;
+    const preset = QUALITY_PRESETS[mode];
+    if (localStream) {
+      const track = localStream.getVideoTracks()[0];
+      if (track) {
+        try {
+          await track.applyConstraints({
+            width: { ideal: preset.width },
+            height: { ideal: preset.height },
+            frameRate: { ideal: preset.frameRate }
+          });
+        } catch (e) {}
+      }
+    }
+    if (mediaCall) applyBitrate(mediaCall, preset.maxBitrate);
+  }
+
+  qualityToggle.addEventListener('change', () => { applyQualityMode(qualityToggle.value); });
+  qualityToggle2.addEventListener('change', () => { applyQualityMode(qualityToggle2.value); });
+
+  function handleIncomingCall(call) {
+    call.answer(localStream);
+    call.on('stream', (stream) => { remoteVideo.srcObject = stream; applyBitrate(call, QUALITY_PRESETS[qualityMode].maxBitrate); });
+    if (call.peerConnection) monitorConnection(call.peerConnection);
+    mediaCall = call;
+  }
+
+  const btnCancelarConexion = document.getElementById('btnCancelarConexion');
+
+  // Cierra cualquier intento de conexión en curso (antes de quedar
+  // conectados) y deja todo listo para reintentar.
+  function cancelarConexion(mensaje) {
+    clearTimeout(connectTimeoutId);
+    if (mediaCall) { try { mediaCall.close(); } catch (e) {} mediaCall = null; }
+    if (dataConn) { try { dataConn.close(); } catch (e) {} dataConn = null; }
+    if (peer) { try { peer.destroy(); } catch (e) {} peer = null; }
+    btnConectar.disabled = false;
+    btnCancelarConexion.style.display = 'none';
+    setStatus('', mensaje || 'conexión cancelada');
+  }
+
+  btnCancelarConexion.addEventListener('click', () => cancelarConexion('conexión cancelada'));
+
+  btnConectar.addEventListener('click', () => {
+    const code = roomCode.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-');
+    if (!code) { setStatus('', 'escribe un nombre de sala primero'); return; }
+    if (!localStream) { setStatus('', 'activa la cámara primero (paso 2)'); return; }
+
+    btnConectar.disabled = true;
+    btnCancelarConexion.style.display = 'inline-block';
+    setStatus('pending', 'conectando...');
+    startConnectTimeout();
+
+    peer = new Peer(code, { config: rtcConfig, debug: 2 });
+
+    peer.on('open', () => {
+      // Soy el primero: quedo esperando a que se una mi pareja.
+      setStatus('pending', 'sala creada, esperando a tu pareja...');
+      peer.on('connection', (conn) => { setupDataConn(conn); });
+      peer.on('call', (call) => { handleIncomingCall(call); });
+    });
+
+    peer.on('disconnected', () => { setStatus('', 'se perdió la conexión con el servidor de señalización'); });
+
+    peer.on('error', (err) => {
+      console.error('PeerJS error:', err);
+      if (err.type === 'unavailable-id') {
+        // Ya existe alguien con ese nombre de sala: me uno como el segundo.
+        peer = new Peer(code + '-2', { config: rtcConfig, debug: 2 });
+        peer.on('open', () => {
+          setStatus('pending', 'uniéndose...');
+          const conn = peer.connect(code);
+          setupDataConn(conn);
+          const call = peer.call(code, localStream);
+          call.on('stream', (stream) => { remoteVideo.srcObject = stream; applyBitrate(call, QUALITY_PRESETS[qualityMode].maxBitrate); });
+          if (call.peerConnection) monitorConnection(call.peerConnection);
+          mediaCall = call;
+        });
+        peer.on('error', (err2) => {
+          console.error('PeerJS error (rol 2):', err2);
+          setStatus('', 'no se pudo conectar (' + err2.type + '). Intenta de nuevo.');
+          btnConectar.disabled = false;
+          btnCancelarConexion.style.display = 'none';
+        });
+      } else {
+        setStatus('', 'no se pudo conectar (' + err.type + '). Intenta de nuevo.');
+        btnConectar.disabled = false;
+        btnCancelarConexion.style.display = 'none';
+      }
+    });
+  });
+
+  // ---- Pantalla completa (video + burbuja de llamada juntos) ----
+  const btnFullscreen = document.getElementById('btnFullscreen');
+
+  function getFsElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
+  }
+  function requestFs(el) {
+    const fn = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (fn) return fn.call(el);
+    return Promise.reject(new Error('Fullscreen no soportado'));
+  }
+  function exitFs() {
+    const fn = document.exitFullscreen || document.webkitExitFullscreen;
+    if (fn) return fn.call(document);
+    return Promise.resolve();
+  }
+
+  btnFullscreen.addEventListener('click', () => {
+    if (getFsElement()) {
+      exitFs().catch(() => {});
+    } else {
+      requestFs(stagePanel).catch(() => {});
+    }
+  });
+
+  // Respaldo: si el usuario igual usa el botón nativo de pantalla completa
+  // del <video> (por ejemplo en Safari, que ignora controlsList), el
+  // navegador pone en pantalla completa solo el <video> y la burbuja
+  // desaparece por un instante. La detectamos y redirigimos automáticamente
+  // a poner #stage entero en pantalla completa.
+  function handleFullscreenRedirect() {
+    const fsEl = getFsElement();
+    if (fsEl === moviePlayer) {
+      exitFs().then(() => requestFs(stagePanel)).catch(() => {});
+    }
+  }
+  document.addEventListener('fullscreenchange', handleFullscreenRedirect);
+  document.addEventListener('webkitfullscreenchange', handleFullscreenRedirect);
+</script>
+
+
+
+</body></html>
